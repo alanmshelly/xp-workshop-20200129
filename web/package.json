@@ -1,0 +1,32 @@
+{
+  "name": "web",
+  "version": "1.0.0",
+  "dependencies": {
+    "@babel/core": "^7.8.3",
+    "@babel/plugin-proposal-class-properties": "^7.8.3",
+    "@babel/preset-env": "^7.8.3",
+    "@babel/preset-react": "^7.8.3",
+    "@types/jest": "^24.9.1",
+    "babel-jest": "^24.9.0",
+    "babel-loader": "^8.0.6",
+    "babel-preset-react-app": "^9.1.0",
+    "jest": "^24.9.0",
+    "react": "^16.12.0",
+    "react-app-polyfill": "^1.0.5",
+    "react-dom": "^16.12.0",
+    "rps": "file:../rps",
+    "webpack": "^4.41.5",
+    "webpack-cli": "^3.3.10"
+  },
+  "scripts": {
+    "compile-app": "NODE_ENV=development webpack --mode development --watch"
+  },
+  "babel": {
+    "presets": [
+      "react-app"
+    ]
+  },
+  "devDependencies": {
+    "sinon": "^8.1.1"
+  }
+}

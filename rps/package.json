@@ -1,0 +1,19 @@
+{
+  "name": "rps",
+  "version": "1.0.0",
+  "devDependencies": {
+    "@babel/core": "^7.8.3",
+    "@babel/preset-env": "^7.8.3",
+    "@types/jest": "^24.9.1",
+    "babel-jest": "^24.9.0",
+    "jest": "^24.9.0",
+    "sinon": "^8.1.1"
+  },
+  "babel": {
+    "presets": [
+      [
+        "@babel/preset-env"
+      ]
+    ]
+  }
+}
