@@ -1,24 +1,24 @@
 export class Requests {
-    play(p1Throw, p2Throw, observer) {
+    playRPS(p1Choice, p2Choice, observer) {
         if (
-            this.isInvalidThrow(p1Throw) ||
-            this.isInvalidThrow(p2Throw)
+            this.isInvalidChoice(p1Choice) ||
+            this.isInvalidChoice(p2Choice)
         ) {
             observer.invalid()
-        } else if (p1Throw === p2Throw) {
+        } else if (p1Choice === p2Choice) {
             observer.tie()
         } else if (
-            p1Throw === 'rock' && p2Throw === 'scissors' ||
-            p1Throw === 'scissors' && p2Throw === 'paper' ||
-            p1Throw === 'paper' && p2Throw === 'rock'
+            p1Choice === 'rock' && p2Choice === 'scissors' ||
+            p1Choice === 'scissors' && p2Choice === 'paper' ||
+            p1Choice === 'paper' && p2Choice === 'rock'
         ) {
-            observer.p1Wins()
+            observer.p1Win()
         } else {
-            observer.p2Wins()
+            observer.p2Win()
         }
     }
 
-    isInvalidThrow(playerThrow) {
-        return !['rock', 'scissors', 'paper'].includes(playerThrow)
+    isInvalidChoice(playerChoice) {
+        return !['rock', 'scissors', 'paper'].includes(playerChoice)
     }
 }

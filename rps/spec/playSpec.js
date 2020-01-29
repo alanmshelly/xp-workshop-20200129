@@ -1,7 +1,7 @@
 import {Requests} from '../src/Requests'
 import * as Sinon from 'sinon'
 
-describe('play', () => {
+describe('playRPS', () => {
     let requests
     beforeEach(() => {
         requests = new Requests()
@@ -11,29 +11,29 @@ describe('play', () => {
         let spyObserver
         beforeEach(() => {
             spyObserver = {
-                p1Wins: Sinon.spy(),
+                p1Win: Sinon.spy(),
             }
         })
 
         it('rock vs scissors', () => {
-            requests.play('rock', 'scissors', spyObserver)
+            requests.playRPS('rock', 'scissors', spyObserver)
 
 
-            Sinon.assert.calledOnce(spyObserver.p1Wins)
+            Sinon.assert.calledOnce(spyObserver.p1Win)
         })
 
         it('scissors vs paper', () => {
-            requests.play('scissors', 'paper', spyObserver)
+            requests.playRPS('scissors', 'paper', spyObserver)
 
 
-            Sinon.assert.calledOnce(spyObserver.p1Wins)
+            Sinon.assert.calledOnce(spyObserver.p1Win)
         })
 
         it('paper vs rock', () => {
-            requests.play('paper', 'rock', spyObserver)
+            requests.playRPS('paper', 'rock', spyObserver)
 
 
-            Sinon.assert.calledOnce(spyObserver.p1Wins)
+            Sinon.assert.calledOnce(spyObserver.p1Win)
         })
     })
 
@@ -41,29 +41,29 @@ describe('play', () => {
         let spyObserver
         beforeEach(() => {
             spyObserver = {
-                p2Wins: Sinon.spy(),
+                p2Win: Sinon.spy(),
             }
         })
 
         it('scissors vs rock', () => {
-            requests.play('scissors', 'rock', spyObserver)
+            requests.playRPS('scissors', 'rock', spyObserver)
 
 
-            Sinon.assert.calledOnce(spyObserver.p2Wins)
+            Sinon.assert.calledOnce(spyObserver.p2Win)
         })
 
         it('paper vs scissors', () => {
-            requests.play('paper', 'scissors', spyObserver)
+            requests.playRPS('paper', 'scissors', spyObserver)
 
 
-            Sinon.assert.calledOnce(spyObserver.p2Wins)
+            Sinon.assert.calledOnce(spyObserver.p2Win)
         })
 
         it('rock vs paper', () => {
-            requests.play('rock', 'paper', spyObserver)
+            requests.playRPS('rock', 'paper', spyObserver)
 
 
-            Sinon.assert.calledOnce(spyObserver.p2Wins)
+            Sinon.assert.calledOnce(spyObserver.p2Win)
         })
 
     })
@@ -77,21 +77,21 @@ describe('play', () => {
         })
 
         it('paper vs paper', () => {
-            requests.play('paper', 'paper', spyObserver)
+            requests.playRPS('paper', 'paper', spyObserver)
 
 
             Sinon.assert.calledOnce(spyObserver.tie)
         })
 
         it('rock vs rock', () => {
-            requests.play('rock', 'rock', spyObserver)
+            requests.playRPS('rock', 'rock', spyObserver)
 
 
             Sinon.assert.calledOnce(spyObserver.tie)
         })
 
         it('scissors vs scissors', () => {
-            requests.play('scissors', 'scissors', spyObserver)
+            requests.playRPS('scissors', 'scissors', spyObserver)
 
 
             Sinon.assert.calledOnce(spyObserver.tie)
@@ -107,21 +107,21 @@ describe('play', () => {
         })
 
         it('rock vs invalid', () => {
-            requests.play('rock', 'daruma', spyObserver)
+            requests.playRPS('rock', 'daruma', spyObserver)
 
 
             Sinon.assert.calledOnce(spyObserver.invalid)
         })
 
         it('invalid vs paper', () => {
-            requests.play('daruma', 'paper', spyObserver)
+            requests.playRPS('daruma', 'paper', spyObserver)
 
 
             Sinon.assert.calledOnce(spyObserver.invalid)
         })
 
         it('invalid vs invalid', () => {
-            requests.play('daruma', 'daruma', spyObserver)
+            requests.playRPS('daruma', 'daruma', spyObserver)
 
 
             Sinon.assert.calledOnce(spyObserver.invalid)
