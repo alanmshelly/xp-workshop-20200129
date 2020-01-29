@@ -1,8 +1,8 @@
 export class Requests {
     play(p1Throw, p2Throw, observer) {
         if (
-            !['rock', 'scissors', 'paper'].includes(p1Throw) ||
-            !['rock', 'scissors', 'paper'].includes(p2Throw)
+            this.isInValidThrow(p1Throw) ||
+            this.isInValidThrow(p2Throw)
         ) {
             observer.invalid()
         } else if (p1Throw === p2Throw) {
@@ -16,5 +16,9 @@ export class Requests {
         } else {
             observer.p2Wins()
         }
+    }
+
+    isInValidThrow(p1Throw) {
+        return !['rock', 'scissors', 'paper'].includes(p1Throw)
     }
 }
