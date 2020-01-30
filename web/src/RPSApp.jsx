@@ -28,7 +28,7 @@ export default class RPSApp extends React.Component {
     }
 
     handlePlayButtonClick() {
-        this.props.requests.play(this.state.p1Choice, this.state.p2Choice, this)
+        this.props.requests.playRPS(this.state.p1Choice, this.state.p2Choice, this)
     }
 
     handlePlayerChoiceChange(event) {
@@ -40,8 +40,20 @@ export default class RPSApp extends React.Component {
     render() {
         return <div>
             {this.state.result}
-            <input name="p1Choice" value={this.state.p1Choice} onChange={this.handlePlayerChoiceChange.bind(this)}/>
-            <input name="p2Choice" value={this.state.p2Choice} onChange={this.handlePlayerChoiceChange.bind(this)}/>
+            <div>
+                <input
+                    name="p1Choice"
+                    value={this.state.p1Choice}
+                    onChange={this.handlePlayerChoiceChange.bind(this)}
+                />
+            </div>
+            <div>
+                <input
+                    name="p2Choice"
+                    value={this.state.p2Choice}
+                    onChange={this.handlePlayerChoiceChange.bind(this)}
+                />
+            </div>
             <button onClick={this.handlePlayButtonClick.bind(this)}>PLAY</button>
         </div>
     }

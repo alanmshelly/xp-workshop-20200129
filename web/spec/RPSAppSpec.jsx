@@ -18,7 +18,7 @@ describe('play form', () => {
     describe('when the play use case tells the UI that the input is invalid', () => {
         beforeEach(() => {
             const alwaysInvalidRequests = {
-                play: (p1Choice, p2Choice, observer) => observer.invalid(),
+                playRPS: (p1Choice, p2Choice, observer) => observer.invalid(),
             }
             renderApp(alwaysInvalidRequests)
         })
@@ -38,7 +38,7 @@ describe('play form', () => {
     describe('when the play use case tells the UI that result is a tie', () => {
         beforeEach(() => {
             const alwaysTieRequests = {
-                play: (p1Choice, p2Choice, observer) => observer.tie(),
+                playRPS: (p1Choice, p2Choice, observer) => observer.tie(),
             }
             renderApp(alwaysTieRequests)
         })
@@ -58,7 +58,7 @@ describe('play form', () => {
     describe('when the play use case tells the UI that result is p1wins', () => {
         beforeEach(() => {
             const alwaysP1WinRequests = {
-                play: (p1Choice, p2Choice, observer) => observer.p1Win(),
+                playRPS: (p1Choice, p2Choice, observer) => observer.p1Win(),
             }
             renderApp(alwaysP1WinRequests)
         })
@@ -78,7 +78,7 @@ describe('play form', () => {
     describe('when the play use case tells the UI that result is p2wins', () => {
         beforeEach(() => {
             const alwaysP2WinRequests = {
-                play: (p1Choice, p2Choice, observer) => observer.p2Win(),
+                playRPS: (p1Choice, p2Choice, observer) => observer.p2Win(),
             }
             renderApp(alwaysP2WinRequests)
         })
@@ -99,7 +99,7 @@ describe('play form', () => {
         it('sends the users inputs to the play request', () => {
             const playSpy = Sinon.spy()
             renderApp({
-                play: playSpy
+                playRPS: playSpy,
             })
 
             setInputValue(document.querySelector('input[name=p1Choice]'), 'foo')
