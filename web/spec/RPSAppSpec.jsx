@@ -33,6 +33,26 @@ describe('play form', () => {
         })
     })
 
+    describe('when the play use case tells the UI that result is a tie', () => {
+        beforeEach(() => {
+            const alwaysTieRequests = {
+                play: (p1Choice, p2Choice, observer) => observer.tie(),
+            }
+            renderApp(alwaysTieRequests)
+        })
+
+        it('by default does not display the game result', () => {
+            expect(page()).not.toContain('TIE!')
+        })
+
+        it('tells the user that the result is a tie', () => {
+            submitForm()
+
+
+            expect(page()).toContain('TIE!')
+        })
+    })
+
     function setupDom() {
         domFixture = document.createElement('div')
         document.body.appendChild(domFixture)
@@ -57,3 +77,17 @@ describe('play form', () => {
         domFixture.querySelector('button').click()
     }
 })
+
+
+
+
+
+
+
+
+
+
+
+
+
+

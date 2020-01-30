@@ -2,17 +2,23 @@ import React from 'react'
 
 export default class RPSApp extends React.Component {
     constructor(props) {
-        super(props);
+        super(props)
 
         this.state = {
-            result: ''
+            result: '',
         }
     }
 
+    invalid() {
+        this.setState({result: 'INVALID!'})
+    }
+
+    tie() {
+        this.setState({result: 'TIE!'})
+    }
+
     handlePlayButtonClick() {
-        this.setState({
-            result: 'INVALID!'
-        })
+        this.props.requests.play(undefined, undefined, this)
     }
 
     render() {
