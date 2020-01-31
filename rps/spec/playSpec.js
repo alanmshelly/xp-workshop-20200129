@@ -1,13 +1,16 @@
 import {Requests} from '../src/Requests'
 import * as Sinon from 'sinon'
+import {FakeRoundRepo} from './FakeRoundRepo'
 
 describe('playRPS', () => {
     let requests
+
     beforeEach(() => {
-        requests = new Requests()
+        const fakeRoundRepo = new FakeRoundRepo()
+        requests = new Requests(fakeRoundRepo)
     })
 
-    describe('p1wins',  () => {
+    describe('p1wins', () => {
         let spyObserver
         beforeEach(() => {
             spyObserver = {
